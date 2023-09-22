@@ -107,13 +107,35 @@ const NoteState = (props) => {
   }
 
 
+  // GET USER DETAILS
+  const [detail, setDetail] = useState(null);
+  const getUser = async () => {
+    // API CALL to fetch details of the current logged in user from the backend
+    const response = await fetch(`${defaultHost}/api/auth/getUser`, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem('token')
+      }
+    });
+    const json = await response.json();
+    setDetail(json);  // Setting the details set with the current response.
+  }
+  
+
+
+
 
   // Passing the properties as context to the children of the NoteState component.
   return (
-    <noteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNotes }}>
+    <noteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNotes,getUser,detail }}>
       {props.children}
     </noteContext.Provider>
   )
 }
 
 export default NoteState;
+
+
+
+

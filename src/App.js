@@ -6,6 +6,7 @@ import NoteState from './context/states/NoteState';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Alert from './components/Alert';
+import Userdetails from './components/Userdetails';
 import {
   BrowserRouter,
   Routes,
@@ -24,6 +25,7 @@ function App() {
       setAlert(null);
     }, 1500);
   }
+
   return (
     <>
       <NoteState>
@@ -36,6 +38,7 @@ function App() {
               <Route exact path="/about" element={<About />} />
               <Route exact path="/login" element={<Login showAlert={showAlert}/>} />
               <Route exact path="/signup" element={<Signup showAlert={showAlert}/>} />
+              <Route exact path="/userdetail" element={<Userdetails/>} />
             </Routes>
           </div>
         </BrowserRouter>

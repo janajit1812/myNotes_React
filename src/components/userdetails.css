@@ -1,0 +1,17 @@
+
+div.user{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid black;
+    /* height: 400px; */
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 19px;
+    /* background-color: black; */
+    background: url(./bg_image.jpg);
+    opacity: 0.6;
+}

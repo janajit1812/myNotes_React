@@ -29,10 +29,14 @@ const Navbar = () => {
                                 <Link className={`nav-link ${location.pathname === "/about" ? "active" : ""}`} to="/about">About</Link>
                             </li>
                         </ul>
-                        {!localStorage.getItem('token') ? <form className="d-flex" role="search">
-                            <Link className="btn btn-primary mx-2" to="/login" role="button">Login</Link>
-                            <Link className="btn btn-primary" to="/signup" role="button">Sign Up</Link>
-                        </form> : <button onClick={handleLogout} type="button" className="btn btn-primary">Log Out</button>}
+                        
+                         {!localStorage.getItem('token') ? <form className="d-flex" role="search">
+                            <Link className="btn btn-success mx-2" to="/login" role="button">Login</Link>
+                            <Link className="btn btn-success" to="/signup" role="button">Sign Up</Link>
+                        </form> : <form className="d-flex" role="search">
+                            <Link className="btn btn-sm btn-success mx-2" to="/userdetail" role="button"><i class="fa-regular fa-user"></i></Link>
+                            <button onClick={handleLogout} type="button" className="btn btn-sm btn-danger">Log Out</button>
+                        </form>}
                     </div>
                 </div>
             </nav>

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Notes = (props) => {
   const context = useContext(noteContext);
-  const { notes, getNotes, editNote } = context;
+  const { notes, getNotes, editNote, getUser } = context;
   const [note, setNote] = useState({ etitle: "", edescription: "", etag: "" });
   let navigate = useNavigate();
 
@@ -14,7 +14,8 @@ const Notes = (props) => {
   useEffect(() => {
     if(localStorage.getItem('token')){
       // console.log(localStorage.getItem('token'));
-      getNotes();
+      getNotes(); // Used to call the notes fetching function
+      getUser(); // Used to call the detail fetching function
     }
     else{
       navigate('/login');
